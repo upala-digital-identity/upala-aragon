@@ -49,9 +49,9 @@ contract CounterApp is AragonApp {
      * @param bladeRunnerAddress Address of existing Bladerunner managing an Upala group
      */
     function attachBladeRunner(address bladeRunnerAddress) external {
-        // require(
-        //     IBladeRunner(bladeRunnerAddress).isBladerunner(),
-        //     "The contract you are trying to attach is not a Bladerunner");
+        require(
+            IBladeRunner(bladeRunnerAddress).isUpalaGroup(),
+            "The contract you are trying to attach is not a Bladerunner");
         bladeRunner = IBladeRunner(bladeRunnerAddress);
     }
     function announceAndSetBotReward(uint256 newBotReward) external {
